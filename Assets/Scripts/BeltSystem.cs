@@ -5,12 +5,13 @@ using UnityEngine;
 public class BeltSystem : MonoBehaviour
 {
     [SerializeField] Transform startPoint = null;
-    [SerializeField] Rotator sorter;
-    
-    [HideInInspector]
-    public Rotator.SorterType sorterType;
+    [SerializeField] float beltSpeed = 1f;
 
-    private void Awake() {
-        sorterType = sorter.sorterType;
+    private void OnCollisionEnter(Collision other) 
+    {
+        if(other.collider.tag == "Product")
+        {
+            other.transform.position += transform.forward*beltSpeed*Time.deltaTime;
+        }    
     }
 } 
