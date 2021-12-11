@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3213759107421262367}
   m_Layer: 0
   m_Name: M
-  m_TagString: Untagged
+  m_TagString: Product
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -111,6 +111,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   color: {r: 0, g: 0, b: 0, a: 0}
   size: 1
+  R: 0
+  G: 0
+  B: 0
 --- !u!54 &3213759107421262367
 Rigidbody:
   m_ObjectHideFlags: 0

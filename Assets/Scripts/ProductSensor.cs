@@ -6,17 +6,17 @@ public class ProductSensor : MonoBehaviour
 {
     [SerializeField] Rotator turnTable;
     [SerializeField] Transform[] turnPoints;
+    [SerializeField] float maxDistance = 10f; 
     Ray ray;
-    float maxDistance = 10f;
 
     private void Awake() {
-        ray = new Ray(transform.position, Vector3.forward);
+        ray = new Ray(transform.position, transform.forward);
     }
     private void Update() 
     {
         RaycastHit hit;
         if(!Physics.Raycast(ray, out hit, maxDistance)||hit.collider.gameObject.tag == "Product") return;
-    
+        print("Sensor detect product");
         ProductSetup ps = hit.collider.GetComponent<ProductSetup>();
         SetTargetPosition(ps);
     }
@@ -41,5 +41,12 @@ public class ProductSensor : MonoBehaviour
             else 
                 turnTable.TurnToObject(turnPoints[2]);
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Vector3 direction = transform.forward * maxDistance;
+        Gizmos.DrawRay(transform.position, direction);
     }
 }

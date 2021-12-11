@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 1911924778209698005}
   - component: {fileID: 3398562894996144554}
   - component: {fileID: 8680804833272547625}
+  - component: {fileID: 779093182}
+  - component: {fileID: 779093183}
   m_Layer: 0
   m_Name: Turn Table
   m_TagString: Untagged
@@ -26,13 +28,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6214127394371586088}
-  m_LocalRotation: {x: -0.7071067, y: -0.000000030908616, z: 0.000000030908623, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0.7069834, z: 0.7072302, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 100, y: 99.99997, z: 99.99997}
   m_Children: []
   m_Father: {fileID: 8206395975651022255}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -89.98, y: 0, z: 180}
 --- !u!33 &1911924778209698005
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -95,6 +97,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de60d930ee500b842bf110d200278e90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sorterType: 0
+--- !u!65 &779093182
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6214127394371586088}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.06382159, y: 0.063821584, z: 0.0500488}
+  m_Center: {x: -0.000000033527613, y: -8.545944e-17, z: -0.006013669}
+--- !u!114 &779093183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6214127394371586088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f43180890c0fe040ad967b437f614ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  beltSpeed: 5
+  parent: {fileID: 8206395975651022255}
 --- !u!1 &7076176389502852997
 GameObject:
   m_ObjectHideFlags: 0
@@ -172,6 +202,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turnTable: {fileID: 8680804833272547625}
+  turnPoints: []
+  maxDistance: 15
 --- !u!1 &8328688355524236398
 GameObject:
   m_ObjectHideFlags: 0
