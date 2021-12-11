@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 8050650229249792539}
   - component: {fileID: 1911924778209698005}
   - component: {fileID: 3398562894996144554}
-  - component: {fileID: 8680804833272547625}
   - component: {fileID: 779093182}
+  - component: {fileID: 8680804833272547625}
   - component: {fileID: 779093183}
   m_Layer: 0
   m_Name: Turn Table
@@ -85,19 +85,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &8680804833272547625
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6214127394371586088}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de60d930ee500b842bf110d200278e90, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sorterType: 0
 --- !u!65 &779093182
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -111,6 +98,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.06382159, y: 0.063821584, z: 0.0500488}
   m_Center: {x: -0.000000033527613, y: -8.545944e-17, z: -0.006013669}
+--- !u!114 &8680804833272547625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6214127394371586088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de60d930ee500b842bf110d200278e90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sorterType: 0
 --- !u!114 &779093183
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -182,7 +182,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7571742032990600979}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -13.28, y: 4.11, z: -0.27000046}
+  m_LocalPosition: {x: -13.28, y: 2.36, z: -0.27000046}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 907026546555103397}
@@ -231,7 +231,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8328688355524236398}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8720625716206449344}

@@ -420,6 +420,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6420388777819211076, guid: 958c218e78c0a794cbc4fdf7cd4428a8, type: 3}
+      propertyPath: turnPoints.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7076176389502852997, guid: 958c218e78c0a794cbc4fdf7cd4428a8, type: 3}
       propertyPath: m_Name
       value: Sorter

@@ -15,8 +15,9 @@ public class ProductSensor : MonoBehaviour
     private void Update() 
     {
         RaycastHit hit;
-        if(!Physics.Raycast(ray, out hit, maxDistance)||hit.collider.gameObject.tag == "Product") return;
-        print("Sensor detect product");
+
+        if(!Physics.Raycast(ray, out hit, maxDistance)||hit.collider.gameObject.tag != "Product") return;
+        print("Sensor has detected product "+ hit.collider.name);
         ProductSetup ps = hit.collider.GetComponent<ProductSetup>();
         SetTargetPosition(ps);
     }
