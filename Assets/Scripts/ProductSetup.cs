@@ -6,6 +6,8 @@ public class ProductSetup : MonoBehaviour
 {
     public Color color;
     public Size size;
+    public float R,G,B;
+    
     public enum Size
     {
         SMALL,
@@ -15,9 +17,9 @@ public class ProductSetup : MonoBehaviour
 
     void Awake()
     {
-        float R = Random.Range(0f, 1f);
-        float G = Random.Range(0f, 1f);
-        float B = Random.Range(0f, 1f);
+        R = Random.Range(0f, 1f);
+        G = Random.Range(0f, 1f);
+        B = Random.Range(0f, 1f);
 
         color = new Color(R,G,B);
         GetComponent<MeshRenderer>().material.color = color;
