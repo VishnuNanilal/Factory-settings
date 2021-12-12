@@ -194,7 +194,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f43180890c0fe040ad967b437f614ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beltSpeed: 5
+  beltSpeed: 12
   conveyer: {fileID: 2830342840213730308}
 --- !u!1 &2537619797308942835
 GameObject:

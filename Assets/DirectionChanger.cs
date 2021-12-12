@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class DirectionChanger : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    Transform targetTransform;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    private void OnCollisionEnter(Collision other) {
+        if(other.collider.tag != "Product") return;
+
+
     }
 }
+

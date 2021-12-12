@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 1780155502851841578}
   - component: {fileID: 7891787802040198372}
   - component: {fileID: 6352284081702077851}
+  - component: {fileID: 1900961006470683471}
+  - component: {fileID: 1622024396}
   m_Layer: 0
   m_Name: Turn Table
   m_TagString: Untagged
@@ -25,13 +27,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2391628786662886425}
-  m_LocalRotation: {x: -0, y: 0.7069834, z: 0.7072302, w: 0}
+  m_LocalRotation: {x: -0.6531675, y: -0.27055082, z: -0.2706453, w: 0.65339553}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 100.00005, y: 99.999985, z: 99.999985}
   m_Children: []
   m_Father: {fileID: 7829346910103796711}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -89.98, y: 0, z: 180}
+  m_LocalEulerAnglesHint: {x: -89.98, y: 0, z: -45}
 --- !u!33 &7891787802040198372
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -82,6 +84,34 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1900961006470683471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2391628786662886425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f43180890c0fe040ad967b437f614ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  beltSpeed: 7
+  conveyer: {fileID: 7829346910103796711}
+--- !u!64 &1622024396
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2391628786662886425}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -6729372980362983544, guid: 708aa3a975d48c645b20c2b5f14b4fd8, type: 3}
 --- !u!1 &3074086595626958658
 GameObject:
   m_ObjectHideFlags: 0
@@ -91,8 +121,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7829346910103796711}
-  - component: {fileID: 8019819721734886560}
-  - component: {fileID: 5488940023515489935}
   m_Layer: 0
   m_Name: DirectionChanger
   m_TagString: Untagged
@@ -115,30 +143,3 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8019819721734886560
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3074086595626958658}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f43180890c0fe040ad967b437f614ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  beltSpeed: 5
-  conveyer: {fileID: 7829346910103796711}
---- !u!65 &5488940023515489935
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3074086595626958658}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 6.371811, y: 1.7107315, z: 1}
-  m_Center: {x: -0.008264542, y: 1.0330405, z: 0}
