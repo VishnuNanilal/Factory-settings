@@ -20,11 +20,9 @@ public class Rotator : MonoBehaviour
 
     IEnumerator Rotate(Transform point)
     {
-        print("Coroutine started");
         while(!Mathf.Approximately(transform.rotation.y, point.rotation.y))
         {
             transform.rotation = Quaternion.Lerp(transform.rotation, point.rotation, Time.deltaTime*speed);
-            print(transform.rotation);
             yield return null;
         }
         StopAllCoroutines();

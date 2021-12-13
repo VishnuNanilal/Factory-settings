@@ -14,14 +14,4 @@ public class ProductSetup : MonoBehaviour
         MEDIUM,
         LARGE
     }
-
-    void Awake()
-    {
-        R = Random.Range(0f, 1f);
-        G = Random.Range(0f, 1f);
-        B = Random.Range(0f, 1f);
-
-        color = new Color(R,G,B);
-        GetComponent<MeshRenderer>().material.color = color;
-    }
 }

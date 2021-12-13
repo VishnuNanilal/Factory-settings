@@ -26,6 +26,7 @@ public class ProductSensor : MonoBehaviour
     {
         if(turnTable.sorterType == Rotator.SorterType.COLOR)
         {
+            print(ps.R+" "+ps.G+" "+ps.B);
             if(ps.R > ps.G && ps.R > ps.B)
                 turnTable.TurnToObject(turnPoints[0]);
             else if(ps.G > ps.B)
