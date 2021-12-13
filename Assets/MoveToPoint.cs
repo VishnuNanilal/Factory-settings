@@ -36,7 +36,7 @@ public class MoveToPoint : MonoBehaviour
             yield return null;
         }
 
-        currentProduct.GetComponent<MeshRenderer>().material.color = GetRandomColor();
+        currentProduct.GetComponent<ProductSetup>().PaintColor();
 
         print("Coroutine Stopped");
         StopAllCoroutines();
@@ -57,13 +57,13 @@ public class MoveToPoint : MonoBehaviour
     Color GetRandomColor()
     {
         ProductSetup ps = currentProduct.GetComponent<ProductSetup>();
-        float R = Random.Range(0f, .75f);
-        ps.R = R;
-        float G = Random.Range(0f, .75f);
-        ps.G = G;
-        float B = Random.Range(0f, .75f);
-        ps.B = B;
+        float Hue = Random.Range(0f, 1f);
+        ps.Hue = Hue;
+        float Sat = .75f;
+        ps.Sat = Sat;
+        float Val = .5f;
+        ps.Val = Val;
 
-        return new Color(R, G, B);
+        return Color.HSVToRGB(Hue, Sat, Val);
     }
 }
