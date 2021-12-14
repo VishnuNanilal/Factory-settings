@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f43180890c0fe040ad967b437f614ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beltSpeed: 7
+  beltSpeed: 12
   conveyer: {fileID: 7829346910103796711}
 --- !u!64 &1622024396
 MeshCollider:

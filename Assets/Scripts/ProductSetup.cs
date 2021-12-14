@@ -25,7 +25,7 @@ public class ProductSetup : MonoBehaviour
     {
         Hue = Random.Range(0f, 1f);
         Sat = .75f;
-        Val = .5f;
+        Val = 1f;
 
         return Color.HSVToRGB(Hue, Sat, Val);
     }

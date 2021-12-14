@@ -150,7 +150,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6691009280034644783}
   m_Layer: 0
-  m_Name: Sorter Setup
+  m_Name: Size Sorter Setup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
