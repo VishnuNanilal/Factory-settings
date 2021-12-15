@@ -53,17 +53,4 @@ public class MoveToPoint : MonoBehaviour
         print("Coroutine Stopped");
         StopAllCoroutines();
     }
-
-    Color GetRandomColor()
-    {
-        ProductSetup ps = currentProduct.GetComponent<ProductSetup>();
-        float Hue = Random.Range(0f, 1f);
-        ps.Hue = Hue;
-        float Sat = .75f;
-        ps.Sat = Sat;
-        float Val = .5f;
-        ps.Val = Val;
-
-        return Color.HSVToRGB(Hue, Sat, Val);
-    }
 }
