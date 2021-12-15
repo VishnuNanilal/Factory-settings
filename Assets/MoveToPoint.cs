@@ -38,19 +38,16 @@ public class MoveToPoint : MonoBehaviour
 
         currentProduct.GetComponent<ProductSetup>().PaintColor();
 
-        print("Coroutine Stopped");
         StopAllCoroutines();
     }
 
     IEnumerator OpenDoorCOR()
     {
-        while (true)
+        while (Mathf.Approximately(transform.position.y, originalPosition.y))
         {
-            if(Mathf.Approximately(transform.position.y, originalPosition.y)) break;
             transform.position = Vector3.Lerp(transform.position, originalPosition, doorSpeed*Time.deltaTime);
             yield return null;
         }
-        print("Coroutine Stopped");
         StopAllCoroutines();
     }
 }

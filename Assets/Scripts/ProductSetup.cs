@@ -18,7 +18,6 @@ public class ProductSetup : MonoBehaviour
     public void PaintColor()
     {
         GetComponent<Renderer>().material.color = GetRandomColor();
-        print(Hue);
     }
 
     Color GetRandomColor()
