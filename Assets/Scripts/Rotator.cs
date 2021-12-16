@@ -19,12 +19,7 @@ public class Rotator : MonoBehaviour
     {
         StartCoroutine(Rotate(point));
     }
-
-    public void TurnByAngle(float angle)
-    {
-        transform.localRotation = Quaternion.Euler(0, angle, 0);
-    }
-
+    
     IEnumerator Rotate(Transform point)
     {
         while(true)

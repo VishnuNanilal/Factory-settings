@@ -10,6 +10,8 @@ public class ProductSensor : MonoBehaviour
     [SerializeField] float maxDistance = 10f; 
     [SerializeField] TriggerProduct productClearTrigger;
     Ray ray;
+    
+    Quaternion[] originalRotation;
 
     private void Awake() {
         ray = new Ray(transform.position, transform.forward);
@@ -20,7 +22,14 @@ public class ProductSensor : MonoBehaviour
         if (productClearTrigger != null)
         {
             productClearTrigger.ProductTriggerEvent += TurnerReset;
-        }    
+        }
+
+        originalRotation = new Quaternion[turnTable.Length];
+
+        for(int i = 0; i < turnTable.Length; i++)
+        {
+            originalRotation[i] = turnTable[i].transform.localRotation;
+        }
     }
 
     private void Update() 
@@ -38,16 +47,15 @@ public class ProductSensor : MonoBehaviour
         if(turnTable[0].sorterType == Rotator.SorterType.COLOR)
         {
             if(ps.Hue < .2f)
-                turnTable[0].TurnByAngle(90);
+                turnTable[0].TurnToObject(turnPoints[0]);
             else if(ps.Hue >= .2f && ps.Hue < .4f)
-                turnTable[1].TurnByAngle(90);
+                turnTable[0].TurnToObject(turnPoints[1]);
             else if(ps.Hue >= .4f && ps.Hue < .6f)
-                turnTable[2].TurnByAngle(90);
+                turnTable[0].TurnToObject(turnPoints[2]);
             else if (ps.Hue >= .6f && ps.Hue < .8f)
-                turnTable[3].TurnByAngle(90);
+                turnTable[0].TurnToObject(turnPoints[3]);
             else
-                turnTable[4].TurnByAngle(90);
-
+                turnTable[4].TurnToObject(turnPoints[4]);
         }
         else
         {
@@ -62,9 +70,9 @@ public class ProductSensor : MonoBehaviour
 
     private void TurnerReset()
     {
-        foreach(Rotator rotator in turnTable)
+        for(int i = 0; i < turnTable.Length; i++)
         {
-            rotator.transform.rotation = Quaternion.Euler(0, 0, 0);
+            turnTable[i].transform.localRotation = originalRotation[i];
         }
     }
 

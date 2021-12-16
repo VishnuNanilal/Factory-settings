@@ -43,8 +43,9 @@ public class MoveToPoint : MonoBehaviour
 
     IEnumerator OpenDoorCOR()
     {
-        while (Mathf.Approximately(transform.position.y, originalPosition.y))
+        while (true)
         {
+            if(Mathf.Approximately(transform.position.y, originalPosition.y)) break;
             transform.position = Vector3.Lerp(transform.position, originalPosition, doorSpeed*Time.deltaTime);
             yield return null;
         }
