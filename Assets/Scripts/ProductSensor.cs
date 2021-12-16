@@ -11,7 +11,7 @@ public class ProductSensor : MonoBehaviour
     [SerializeField] TriggerProduct productClearTrigger;
     Ray ray;
     
-    Quaternion[] originalRotation;
+    [SerializeField] Transform originalRotation;
 
     private void Awake() {
         ray = new Ray(transform.position, transform.forward);
@@ -22,13 +22,6 @@ public class ProductSensor : MonoBehaviour
         if (productClearTrigger != null)
         {
             productClearTrigger.ProductTriggerEvent += TurnerReset;
-        }
-
-        originalRotation = new Quaternion[turnTable.Length];
-
-        for(int i = 0; i < turnTable.Length; i++)
-        {
-            originalRotation[i] = turnTable[i].transform.localRotation;
         }
     }
 
@@ -72,14 +65,8 @@ public class ProductSensor : MonoBehaviour
     {
         for(int i = 0; i < turnTable.Length; i++)
         {
-            turnTable[i].transform.localRotation = originalRotation[i];
+            turnTable[i].TurnToObject(originalRotation);
+            //turnTable[i].transform.localRotation = originalRotation.localRotation;
         }
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Vector3 direction = transform.forward * maxDistance;
-        Gizmos.DrawRay(transform.position, direction);
     }
 }

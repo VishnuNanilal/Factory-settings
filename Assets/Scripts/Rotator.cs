@@ -17,6 +17,7 @@ public class Rotator : MonoBehaviour
 
     public void TurnToObject(Transform point)
     {
+        StopAllCoroutines();
         StartCoroutine(Rotate(point));
     }
     
