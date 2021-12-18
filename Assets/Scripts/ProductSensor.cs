@@ -42,11 +42,11 @@ public class ProductSensor : MonoBehaviour
             if(ps.Hue < .2f)
                 turnTable[0].TurnToObject(turnPoints[0]);
             else if(ps.Hue >= .2f && ps.Hue < .4f)
-                turnTable[0].TurnToObject(turnPoints[1]);
+                turnTable[1].TurnToObject(turnPoints[1]);
             else if(ps.Hue >= .4f && ps.Hue < .6f)
-                turnTable[0].TurnToObject(turnPoints[2]);
+                turnTable[2].TurnToObject(turnPoints[2]);
             else if (ps.Hue >= .6f && ps.Hue < .8f)
-                turnTable[0].TurnToObject(turnPoints[3]);
+                turnTable[3].TurnToObject(turnPoints[3]);
             else
                 turnTable[4].TurnToObject(turnPoints[4]);
         }
