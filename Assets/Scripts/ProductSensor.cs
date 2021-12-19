@@ -8,7 +8,7 @@ public class ProductSensor : MonoBehaviour
     [SerializeField] Rotator[] turnTable;
     [SerializeField] Transform[] turnPoints;
     [SerializeField] float maxDistance = 10f; 
-    [SerializeField] TriggerProduct productClearTrigger;
+    [SerializeField] TriggerProduct[] productClearTrigger;
     Ray ray;
     
     [SerializeField] Transform originalRotation;
@@ -19,9 +19,13 @@ public class ProductSensor : MonoBehaviour
 
     private void Start() 
     {
-        if (productClearTrigger != null)
+        if (productClearTrigger.Length != 0)
         {
-            productClearTrigger.ProductTriggerEvent += TurnerReset;
+            foreach(TriggerProduct tp in productClearTrigger)
+            {
+                tp.ProductTriggerEvent += TurnerReset;
+            }
+            TurnerReset();
         }
     }
 
@@ -39,16 +43,16 @@ public class ProductSensor : MonoBehaviour
     {
         if(turnTable[0].sorterType == Rotator.SorterType.COLOR)
         {
-            if(ps.Hue < .2f)
+            if(ps.Hue > .9445f || ps.Hue < .0834) //Red-Orange
                 turnTable[0].TurnToObject(turnPoints[0]);
-            else if(ps.Hue >= .2f && ps.Hue < .4f)
+            else if(ps.Hue >= .0834f && ps.Hue < 0.1945f) //yellow
                 turnTable[1].TurnToObject(turnPoints[1]);
-            else if(ps.Hue >= .4f && ps.Hue < .6f)
+            else if(ps.Hue >= .1945f && ps.Hue < .47223f) //Green
                 turnTable[2].TurnToObject(turnPoints[2]);
-            else if (ps.Hue >= .6f && ps.Hue < .8f)
-                turnTable[3].TurnToObject(turnPoints[3]);
+            else if (ps.Hue >= .47223f && ps.Hue < .72334f)
+                turnTable[3].TurnToObject(turnPoints[3]); //Blue
             else
-                turnTable[4].TurnToObject(turnPoints[4]);
+                turnTable[4].TurnToObject(turnPoints[4]); //Pink
         }
         else
         {
