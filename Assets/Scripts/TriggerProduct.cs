@@ -3,13 +3,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TriggerProduct : MonoBehaviour
+public class TriggerProduct : ProductTriggerable
 {
-    public event Action ProductTriggerEvent;
-    
-    private void OnTriggerEnter(Collider other) 
+    ProductSensor ps;
+
+    private void Awake() 
     {
-        if(other.gameObject.tag != "Product") return;
-        ProductTriggerEvent();
+        ps = GetComponentInParent<ProductSensor>();    
+    }
+    protected override void OnProductEnterTrigger(GameObject other)
+    {
+        ps.ResetRotation();
+    }
+
+    protected override void OnProductExitTrigger(GameObject other)
+    {
+        //empty
     }
 }

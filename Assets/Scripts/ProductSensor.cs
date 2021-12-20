@@ -8,7 +8,7 @@ public class ProductSensor : MonoBehaviour
     [SerializeField] Rotator[] turnTable;
     [SerializeField] Transform[] turnPoints;
     [SerializeField] float maxDistance = 10f; 
-    [SerializeField] TriggerProduct[] productClearTrigger;
+    
     Ray ray;
     
     [SerializeField] Transform originalRotation;
@@ -17,24 +17,12 @@ public class ProductSensor : MonoBehaviour
         ray = new Ray(transform.position, transform.forward);
     }
 
-    private void Start() 
-    {
-        if (productClearTrigger.Length != 0)
-        {
-            foreach(TriggerProduct tp in productClearTrigger)
-            {
-                tp.ProductTriggerEvent += TurnerReset;
-            }
-            TurnerReset();
-        }
-    }
-
     private void Update() 
     {
         RaycastHit hit;
 
         if(!Physics.Raycast(ray, out hit, maxDistance)||hit.collider.gameObject.tag != "Product") return;
-        print("Sensor has detected product "+ hit.collider.name);
+
         ProductSetup ps = hit.collider.GetComponent<ProductSetup>();
         SetTargetPosition(ps);
     }
@@ -65,12 +53,11 @@ public class ProductSensor : MonoBehaviour
         }
     }
 
-    private void TurnerReset()
+    public void ResetRotation()
     {
-        for(int i = 0; i < turnTable.Length; i++)
+        for (int i = 0; i < turnTable.Length; i++)
         {
             turnTable[i].TurnToObject(originalRotation);
-            //turnTable[i].transform.localRotation = originalRotation.localRotation;
         }
     }
 }

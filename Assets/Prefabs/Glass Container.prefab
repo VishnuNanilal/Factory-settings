@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &47098285
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 47098286}
+  m_Layer: 0
+  m_Name: OpenPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &47098286
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 47098285}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -0.03689766, y: -2.1398382, z: 1.9393768}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1549495737089271795}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1 &1396301781832565063
 GameObject:
   m_ObjectHideFlags: 0
@@ -10,7 +40,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7886779001327439529}
   - component: {fileID: 3035382197171031611}
-  - component: {fileID: 1549495737693422105}
+  - component: {fileID: 3843101532104870756}
   m_Layer: 0
   m_Name: Trigger
   m_TagString: Untagged
@@ -26,7 +56,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1396301781832565063}
   m_LocalRotation: {x: 0.4999997, y: -0.5000003, z: -0.49999967, w: 0.50000036}
-  m_LocalPosition: {x: -0.03689766, y: 1.32, z: 1.9393768}
+  m_LocalPosition: {x: -0.03689766, y: 2.08, z: 1.94}
   m_LocalScale: {x: 137.2307, y: 100, z: 100}
   m_Children: []
   m_Father: {fileID: 1549495737089271795}
@@ -45,7 +75,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.002, y: 0.04397071, z: 0.039945263}
   m_Center: {x: -0.0000000037252903, y: -0.019985355, z: -0.0000646729}
---- !u!114 &1549495737693422105
+--- !u!114 &3843101532104870756
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -54,7 +84,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1396301781832565063}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b776ce367268c884a827379191db1142, type: 3}
+  m_Script: {fileID: 11500000, guid: 36f8bcc1fafe46e4dbd2293749f1b6f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1549495735813401947
@@ -295,11 +325,12 @@ Transform:
   m_GameObject: {fileID: 1549495737089271796}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -40.07692, y: -9.0704, z: 297.50787}
-  m_LocalScale: {x: 2, y: 1.4574, z: 2}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 3265517237817589872}
   - {fileID: 3657356725771412722}
   - {fileID: 7886779001327439529}
+  - {fileID: 47098286}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -316,8 +347,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lid: {fileID: 3657356725771412722}
-  ContainerCapacity: 10
-  openSpeed: 5
+  openRotation: {fileID: 47098286}
+  ContainerCapacity: 5
+  openSpeed: 3
   lidOpenedTime: 5
 --- !u!1 &2745685098525891274
 GameObject:
@@ -345,8 +377,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2745685098525891274}
   m_LocalRotation: {x: 0.50000006, y: -0.49999994, z: 0.4999999, w: 0.5000001}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_LocalPosition: {x: 0, y: 0, z: 1.01}
+  m_LocalScale: {x: 125, y: 100, z: 400}
   m_Children:
   - {fileID: 1549495736739715276}
   - {fileID: 1549495736300224130}
@@ -430,9 +462,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4146225621007990344}
-  m_LocalRotation: {x: 0.4999997, y: -0.5000003, z: -0.49999967, w: 0.50000036}
-  m_LocalPosition: {x: -0.03689766, y: -2.1398382, z: 1.9393768}
-  m_LocalScale: {x: 137.2307, y: 100, z: 100}
+  m_LocalRotation: {x: 0.5, y: -0.5, z: -0.5, w: 0.5}
+  m_LocalPosition: {x: -0.03689766, y: -8.01, z: 3.21}
+  m_LocalScale: {x: 100, y: 112, z: 100}
   m_Children: []
   m_Father: {fileID: 1549495737089271795}
   m_RootOrder: 1

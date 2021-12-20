@@ -37,7 +37,6 @@ public class Rotator : MonoBehaviour
         {
             StopAllCoroutines();
             timer = timeToStopCoroutines;
-            print(1);
         }    
         timer -= Time.deltaTime;
     }

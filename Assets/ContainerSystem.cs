@@ -5,10 +5,18 @@ using UnityEngine;
 public class ContainerSystem : MonoBehaviour
 {
     [SerializeField] Transform lid;
+    [SerializeField] Transform openRotation;
+    Quaternion originalRotation;
+    
+    [Space]
     [SerializeField] int ContainerCapacity = 10;
     [SerializeField] float openSpeed = 5f;
     [SerializeField] float lidOpenedTime = 5f;
     private float massCount = 0f;
+    
+    private void Start() {
+        originalRotation = lid.transform.rotation;
+    }
 
     public float GetMassCount()
     {
@@ -24,18 +32,17 @@ public class ContainerSystem : MonoBehaviour
     {
         if(massCount >= ContainerCapacity)
         {
-            StartCoroutine(OpenLid());    
             massCount = 0;
-        }
-            
+            StartCoroutine(OpenLid());    
+        }      
     }
 
     IEnumerator OpenLid()
     {
         while (true)
         {   
-            if(Mathf.Approximately(transform.rotation.z, 0)) break;
-            lid.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(transform.rotation.x,transform.rotation.y,0), Time.deltaTime * openSpeed);
+            if(lid.localEulerAngles.z > 350) break;
+            lid.localRotation = Quaternion.Lerp(lid.localRotation, openRotation.localRotation, Time.deltaTime * openSpeed);
             yield return null;
         }      
         StartCoroutine(CloseLid());
@@ -43,14 +50,18 @@ public class ContainerSystem : MonoBehaviour
 
     IEnumerator CloseLid()
     {
+        StopCoroutine(OpenLid());
         float timer = 0f;
+
         while(true)
         {
             timer += Time.deltaTime;
-            if(timer<lidOpenedTime) continue;
-            if (Mathf.Approximately(transform.rotation.z, -90)) break;
-            lid.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(transform.rotation.x, transform.rotation.y, -90), Time.deltaTime * openSpeed);
-            yield return null;
+            if(timer>lidOpenedTime)
+            {
+                if (lid.localEulerAngles.z < 0) break;
+                lid.localRotation = Quaternion.Lerp(lid.localRotation, originalRotation, Time.deltaTime * openSpeed);
+                yield return null;
+            }
         }
         StopAllCoroutines();
     }
