@@ -2,25 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TriggerDoor : MonoBehaviour
+public class TriggerDoor : ProductTriggerable
 {
     [SerializeField] MoveToPoint[] controlledDoors;
 
-    private void OnTriggerEnter(Collider other)
+    protected override void OnProductEnterTrigger(GameObject other)
     {
-        if(other.tag != "Product" || gameObject.name != "Exit Door") return;
-        foreach(MoveToPoint door in controlledDoors)
+        if (gameObject.name != "Exit Door") return;
+        foreach (MoveToPoint door in controlledDoors)
         {
             door.OpenDoor();
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    protected override void OnProductExitTrigger(GameObject other)
     {
-        if (other.tag != "Product" || gameObject.name != "Enter Door") return;
+        if (gameObject.name != "Enter Door") return;
         foreach (MoveToPoint door in controlledDoors)
         {
-            door.CloseDoor(other.gameObject);
+            door.CloseDoor(other);
         }
     }
 }
