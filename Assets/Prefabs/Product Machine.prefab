@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPosition: {fileID: 4446770674412664292}
-  spawnTime: 5
+  spawnTime: 3.5
 --- !u!1 &5576835541918945131
 GameObject:
   m_ObjectHideFlags: 0

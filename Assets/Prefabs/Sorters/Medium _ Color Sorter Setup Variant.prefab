@@ -70,7 +70,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1073566119254141930, guid: 7ab0545e71f8d5247b67fe505e194619, type: 3}
       propertyPath: m_Name
-      value: Medium _ Color Sorter Setup
+      value: Medium _ Color Sorter Setup Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 1571845053314516655, guid: 7ab0545e71f8d5247b67fe505e194619, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -6.6
       objectReference: {fileID: 0}
     - target: {fileID: 2105234866382873024, guid: 7ab0545e71f8d5247b67fe505e194619, type: 3}
       propertyPath: m_RootOrder
