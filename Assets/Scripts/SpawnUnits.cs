@@ -5,9 +5,14 @@ using UnityEngine;
 public class SpawnUnits : MonoBehaviour
 {
     [SerializeField] Transform spawnPosition = null;
-    [SerializeField] float spawnTime;
+    float spawnTime;
 
     GameObject currentUnit;
+
+    private void Awake() 
+    {
+        spawnTime = GameManager.instance.ProductProductionRate;
+    }
 
     private void Start() {
         StartCoroutine(StartSpawn());

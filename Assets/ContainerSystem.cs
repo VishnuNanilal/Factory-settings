@@ -6,16 +6,17 @@ public class ContainerSystem : MonoBehaviour
 {
     [SerializeField] Transform lid;
     [SerializeField] Transform openRotation;
-    Quaternion originalRotation;
+    Vector3 originalRotation;
     
     [Space]
     [SerializeField] int ContainerCapacity = 10;
-    [SerializeField] float openSpeed = 5f;
-    [SerializeField] float lidOpenedTime = 5f;
+    [SerializeField] float openSpeed = 1f;
+    [SerializeField] float stayOpenedTime = 5f;
     private float massCount = 0f;
     
     private void Start() {
-        originalRotation = lid.transform.rotation;
+        originalRotation = lid.localEulerAngles;
+        //StartCoroutine(OpenLid());
     }
 
     public float GetMassCount()
@@ -41,8 +42,12 @@ public class ContainerSystem : MonoBehaviour
     {
         while (true)
         {   
-            if(lid.localEulerAngles.z > 350) break;
-            lid.localRotation = Quaternion.Lerp(lid.localRotation, openRotation.localRotation, Time.deltaTime * openSpeed);
+            if(Mathf.Approximately ((int)lid.localEulerAngles.z, (int)openRotation.localEulerAngles.z)) 
+            {
+                lid.localEulerAngles = openRotation.localEulerAngles;
+                break;
+            }
+            lid.localEulerAngles = Vector3.Lerp(lid.localEulerAngles, openRotation.localEulerAngles, Time.deltaTime * openSpeed);
             yield return null;
         }      
         StartCoroutine(CloseLid());
@@ -52,17 +57,26 @@ public class ContainerSystem : MonoBehaviour
     {
         StopCoroutine(OpenLid());
         float timer = 0f;
-
-        while(true)
+        
+        while (true)
         {
             timer += Time.deltaTime;
-            if(timer>lidOpenedTime)
+            if (timer > stayOpenedTime)
             {
-                if (lid.localEulerAngles.z < 0) break;
-                lid.localRotation = Quaternion.Lerp(lid.localRotation, originalRotation, Time.deltaTime * openSpeed);
+                if (Mathf.Approximately((int)lid.localEulerAngles.z, (int)originalRotation.z))
+                {
+                    lid.localEulerAngles = originalRotation;
+                    break;
+                } 
+                lid.localEulerAngles = Vector3.Lerp(lid.localEulerAngles, originalRotation, Time.deltaTime * openSpeed);
+                yield return null;
+            }
+            else
+            {
                 yield return null;
             }
         }
+        print("Rotation back to default");
         StopAllCoroutines();
     }
 }
