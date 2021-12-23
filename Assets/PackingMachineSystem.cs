@@ -6,15 +6,16 @@ public class PackingMachineSystem : MonoBehaviour
 {
     [SerializeField] Transform _Prefab_OutProduct;
     [SerializeField] Transform outputPoint;
-    private List<ProductSetup> products;
+    private int products;
 
     private void Awake() {
-        products = new List<ProductSetup>();
+        products = 0;
     }
 
-    public void AddToList(ProductSetup product)
+    public void AddToSystem(GameObject product)
     {
-        products.Add(product);
+        Destroy(product);
+        products++;
     }
 
     float productProcessTimer = 0f;
@@ -30,15 +31,10 @@ public class PackingMachineSystem : MonoBehaviour
 
     private void ProductProcess()
     {
-        if(products.Count != 0)
+        if(products != 0)
         {
-            GameObject currentProduct = products[0].gameObject;
-            products.RemoveAt(0);
-            Destroy(currentProduct); 
+            Instantiate(_Prefab_OutProduct, outputPoint.position, Quaternion.identity);
+            products--;
         }
-
-        Instantiate(_Prefab_OutProduct, outputPoint.position, Quaternion.identity);
     }
-
-
 }
