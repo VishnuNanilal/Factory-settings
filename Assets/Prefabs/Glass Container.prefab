@@ -350,7 +350,7 @@ MonoBehaviour:
   openRotation: {fileID: 47098286}
   ContainerCapacity: 5
   openSpeed: 2
-  stayOpenedTime: 3
+  stayOpenedTime: 1.75
 --- !u!1 &2745685098525891274
 GameObject:
   m_ObjectHideFlags: 0

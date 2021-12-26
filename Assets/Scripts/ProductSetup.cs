@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ProductSetup : MonoBehaviour
 {
-    public Color color;
     public Size size;
     public float Hue,Sat,Val;
     
@@ -23,8 +22,8 @@ public class ProductSetup : MonoBehaviour
     Color GetRandomColor()
     {
         Hue = Random.Range(0f, 1f);
-        Sat = .75f;
-        Val = 1f;
+        Sat = GameManager.productColorSaturation;
+        Val = GameManager.productColorValue;
 
         return Color.HSVToRGB(Hue, Sat, Val);
     }

@@ -5,9 +5,15 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance = null;
-    public float ProductProductionRate = 3.5f;
+    public float ProductProductionRate;
 
     public GameObject[] spawnObjectList;
+
+    [HideInInspector]
+    public const float productColorSaturation = .75f;
+    [HideInInspector]
+    public const float productColorValue = 1f;
+
 
     private void Awake() {
         if(instance!= null) 
@@ -19,5 +25,6 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
         }
+        ProductProductionRate = 3.5f;
     }
 }
