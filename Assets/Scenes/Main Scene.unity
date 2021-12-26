@@ -1777,10 +1777,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Glass Container (7)
       objectReference: {fileID: 0}
-    - target: {fileID: 3035382197171031611, guid: 6ef11040593d5d840bcb5de897506d9e, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ef11040593d5d840bcb5de897506d9e, type: 3}
 --- !u!1001 &727579984
@@ -2588,7 +2584,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!64 &1052556888
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -3374,18 +3370,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: _Persistent Objects
       objectReference: {fileID: 0}
-    - target: {fileID: 8314262109260546897, guid: 664b64ec43f4d7c45959f5f6e51f5d22, type: 3}
-      propertyPath: spawnObjectList.Array.data[0]
-      value: 
-      objectReference: {fileID: 1427220812376722502, guid: 0ae79b6368297a248832b69f65bdf2d2, type: 3}
-    - target: {fileID: 8314262109260546897, guid: 664b64ec43f4d7c45959f5f6e51f5d22, type: 3}
-      propertyPath: spawnObjectList.Array.data[1]
-      value: 
-      objectReference: {fileID: 1427220812376722502, guid: 0ae79b6368297a248832b69f65bdf2d2, type: 3}
-    - target: {fileID: 8314262109260546897, guid: 664b64ec43f4d7c45959f5f6e51f5d22, type: 3}
-      propertyPath: spawnObjectList.Array.data[2]
-      value: 
-      objectReference: {fileID: 1427220812376722502, guid: 0ae79b6368297a248832b69f65bdf2d2, type: 3}
     - target: {fileID: 8434961024950408218, guid: 664b64ec43f4d7c45959f5f6e51f5d22, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -3746,10 +3730,6 @@ PrefabInstance:
     - target: {fileID: 1549495737089271796, guid: 6ef11040593d5d840bcb5de897506d9e, type: 3}
       propertyPath: m_Name
       value: Glass Container (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 3035382197171031611, guid: 6ef11040593d5d840bcb5de897506d9e, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ef11040593d5d840bcb5de897506d9e, type: 3}
