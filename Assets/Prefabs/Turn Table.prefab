@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7926895889173382563}
   - component: {fileID: 6603234001979860188}
   - component: {fileID: 8397375628557148617}
-  - component: {fileID: 935264587012416600}
+  - component: {fileID: 7648089325555010799}
   m_Layer: 0
   m_Name: Turn Table
   m_TagString: Untagged
@@ -98,8 +98,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   beltSpeed: 12
   conveyer: {fileID: 8008477014396443296}
---- !u!64 &935264587012416600
-MeshCollider:
+--- !u!65 &7648089325555010799
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -108,10 +108,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -6729372980362983544, guid: 708aa3a975d48c645b20c2b5f14b4fd8, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 0.06382162, y: 0.06382161, z: 0.050048824}
+  m_Center: {x: -0.000000033527627, y: 0.000000001075503, z: -0.006013671}
 --- !u!1 &2653776285299290881
 GameObject:
   m_ObjectHideFlags: 0
