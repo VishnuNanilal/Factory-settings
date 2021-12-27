@@ -2,16 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProductConveyer : MonoBehaviour
+public class ProductConveyer : ProductTriggerable
 {
     [SerializeField] float beltSpeed = 1f;
     [SerializeField] Transform conveyer;
 
-    void OnCollisionStay(Collision other) 
+    protected override void OnProductEnterTrigger(GameObject other)
     {
-        if(other.collider.tag == "Product")
-        {
-            other.transform.position += conveyer.transform.forward * beltSpeed * Time.deltaTime;
-        }
+        other.transform.position += conveyer.transform.forward * beltSpeed * Time.deltaTime;
+    }
+
+    protected override void OnProductExitTrigger(GameObject other)
+    {
+        //empty
     }
 }

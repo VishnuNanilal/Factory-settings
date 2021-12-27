@@ -4,29 +4,35 @@ using UnityEngine;
 
 public class Rotator : MonoBehaviour
 {
-    public SorterType sorterType;
-    [SerializeField] float speed = 10f;
-    float timeToStopCoroutines = 10f;
-    float timer = 10f;
+    [SerializeField] protected float speed = 10f;
+
+    protected GameObject controlledObject;
+    private float timeToStopCoroutines = 10f;
+    private float timer = 10f;
     
-    public enum SorterType
+
+    //overload 1
+    public IEnumerator TurnObjectTo(Transform point)
     {
-        SIZE,
-        COLOR
+        this.controlledObject = gameObject;
+        StopAllCoroutines();
+        yield return StartCoroutine(Rotate(point));
     }
 
-    public void TurnToObject(Transform point)
+    //overload2
+    public IEnumerator TurnObjectTo(GameObject controlledObject, Transform point)
     {
+        this.controlledObject = controlledObject;
         StopAllCoroutines();
-        StartCoroutine(Rotate(point));
+        yield return StartCoroutine(Rotate(point));
     }
     
-    IEnumerator Rotate(Transform point)
+    protected IEnumerator Rotate(Transform point)
     {
         while(true)
         {
-            if(Mathf.Approximately(transform.rotation.y, point.rotation.y)) break;
-            transform.rotation = Quaternion.Lerp(transform.rotation, point.rotation, Time.deltaTime*speed);
+            if(Mathf.Approximately((int)controlledObject.transform.localEulerAngles.y, (int)point.localEulerAngles.y)) break;
+            controlledObject.transform.localEulerAngles = Vector3.Lerp(controlledObject.transform.localEulerAngles, point.localEulerAngles, Time.deltaTime*speed);
             yield return null;
         }
     }

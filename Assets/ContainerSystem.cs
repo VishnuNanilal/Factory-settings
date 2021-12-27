@@ -4,18 +4,24 @@ using UnityEngine;
 
 public class ContainerSystem : MonoBehaviour
 {
-    [SerializeField] Transform lid;
+    [SerializeField] GameObject lid;
     [SerializeField] Transform openRotation;
-    Vector3 originalRotation;
+    Transform originalRotation;
     
-    [Space]
+    Rotator rotator;
+    
+    [Space][Space][Space]
     [SerializeField] int ContainerCapacity = 10;
-    [SerializeField] float openSpeed = 1f;
+    //[SerializeField] float openSpeed = 1f;
     [SerializeField] float stayOpenedTime = 5f;
     private float massCount = 0f;
-    
-    private void Start() {
-        originalRotation = lid.localEulerAngles;
+
+
+    private void Awake() {
+        rotator = GetComponent<Rotator>();
+        originalRotation = transform;
+        StartCoroutine(OpenLid());
+        //originalRotation = lid.localEulerAngles;
         //StartCoroutine(OpenLid());
     }
 
@@ -34,30 +40,21 @@ public class ContainerSystem : MonoBehaviour
         if(massCount >= ContainerCapacity)
         {
             massCount = 0;
-            StartCoroutine(OpenLid());    
+            StartCoroutine(OpenLid());
         }      
     }
 
     IEnumerator OpenLid()
     {
-        while (true)
-        {   
-            if(Mathf.Approximately ((int)lid.localEulerAngles.z, (int)openRotation.localEulerAngles.z)) 
-            {
-                lid.localEulerAngles = openRotation.localEulerAngles;
-                break;
-            }
-            lid.localEulerAngles = Vector3.Lerp(lid.localEulerAngles, openRotation.localEulerAngles, Time.deltaTime * openSpeed);
-            yield return null;
-        }      
-        StartCoroutine(CloseLid());
+        yield return rotator.TurnObjectTo(lid, openRotation);
+        yield return new WaitForSeconds(stayOpenedTime);
+        yield return StartCoroutine(CloseLid());
     }
 
     IEnumerator CloseLid()
     {
-        StopCoroutine(OpenLid());
-        float timer = 0f;
-        
+        yield return rotator.TurnObjectTo(lid, originalRotation);
+        /*
         while (true)
         {
             timer += Time.deltaTime;
@@ -75,8 +72,7 @@ public class ContainerSystem : MonoBehaviour
             {
                 yield return null;
             }
-        }
-        print("Rotation back to default");
+        }*/
         StopAllCoroutines();
     }
 }

@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 701db6f3ed9c77a4e9961d7624655a02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sorterType: 1
   turnTable:
   - {fileID: 7820959533695330087}
   - {fileID: 5519150742176918867}
