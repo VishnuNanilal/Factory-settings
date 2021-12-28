@@ -39,24 +39,24 @@ public class ProductSensor : MonoBehaviour
         if(sorterType == SorterType.COLOR)
         {
             if(ps.Hue > .9445f || ps.Hue < .0834) //Red-Orange
-                turnTable[0].TurnObjectTo(turnPoints[0]);
+                turnTable[0].TurnObjectTo(turnPoints[0].localEulerAngles);
             else if(ps.Hue >= .0834f && ps.Hue < 0.1945f) //yellow
-                turnTable[1].TurnObjectTo(turnPoints[1]);
+                turnTable[1].TurnObjectTo(turnPoints[1].localEulerAngles);
             else if(ps.Hue >= .1945f && ps.Hue < .47223f) //Green
-                turnTable[2].TurnObjectTo(turnPoints[2]);
+                turnTable[2].TurnObjectTo(turnPoints[2].localEulerAngles);
             else if (ps.Hue >= .47223f && ps.Hue < .72334f)
-                turnTable[3].TurnObjectTo(turnPoints[3]); //Blue
+                turnTable[3].TurnObjectTo(turnPoints[3].localEulerAngles); //Blue
             else
-                turnTable[4].TurnObjectTo(turnPoints[4]); //Pink
+                turnTable[4].TurnObjectTo(turnPoints[4].localEulerAngles); //Pink
         }
         else
         {
             if(ps.size == ProductSetup.Size.LARGE)
-                turnTable[0].TurnObjectTo(turnPoints[0]);
+                turnTable[0].TurnObjectTo(turnPoints[0].localEulerAngles);
             else if (ps.size == ProductSetup.Size.MEDIUM)
-                turnTable[0].TurnObjectTo(turnPoints[1]);
+                turnTable[0].TurnObjectTo(turnPoints[1].localEulerAngles);
             else 
-                turnTable[0].TurnObjectTo(turnPoints[2]);
+                turnTable[0].TurnObjectTo(turnPoints[2].localEulerAngles);
         }
     }
 
@@ -64,7 +64,7 @@ public class ProductSensor : MonoBehaviour
     {
         for (int i = 0; i < turnTable.Length; i++)
         {
-            turnTable[i].TurnObjectTo(originalRotation);
+            turnTable[i].TurnObjectTo(originalRotation.localEulerAngles);
         }
     }
 }

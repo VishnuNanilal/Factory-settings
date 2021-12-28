@@ -12,7 +12,6 @@ public class ProductTrigger_Container : ProductTriggerable
 
     protected override void OnProductEnterTrigger(GameObject other)
     {
-        print("Mass "+other.GetComponent<Rigidbody>().mass+" added");
         CS.SetMassCount(other.GetComponent<Rigidbody>().mass);
     }
 

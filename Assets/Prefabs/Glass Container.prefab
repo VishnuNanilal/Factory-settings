@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 47098286}
   m_Layer: 0
-  m_Name: OpenPosition
+  m_Name: OpenRotation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -348,8 +348,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lid: {fileID: 4146225621007990344}
-  openRotation: {fileID: 47098286}
+  openTransform: {fileID: 47098286}
   ContainerCapacity: 5
+  stayOpenedTime: 3
 --- !u!114 &5299933336912480812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -362,7 +363,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de60d930ee500b842bf110d200278e90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 2
 --- !u!1 &2745685098525891274
 GameObject:
   m_ObjectHideFlags: 0
