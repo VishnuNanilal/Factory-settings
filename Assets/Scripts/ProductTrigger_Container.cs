@@ -10,12 +10,12 @@ public class ProductTrigger_Container : ProductTriggerable
         CS = GetComponentInParent<ContainerSystem>();   
     }
 
-    protected override void OnProductEnterTrigger(GameObject other)
+    protected override void OnProductEnter(GameObject other)
     {
         CS.SetMassCount(other.GetComponent<Rigidbody>().mass);
     }
 
-    protected override void OnProductExitTrigger(GameObject other)
+    protected override void OnProductExit(GameObject other)
     {
         
     }

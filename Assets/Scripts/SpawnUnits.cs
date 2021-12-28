@@ -34,6 +34,7 @@ public class SpawnUnits : MonoBehaviour
         }
     }
 
+    //To stop production
     private void StopSpawnFactory()
     {
         StopAllCoroutines();

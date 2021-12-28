@@ -6,7 +6,7 @@ public class TriggerDoor : ProductTriggerable
 {
     [SerializeField] MoveToPoint[] controlledDoors;
 
-    protected override void OnProductEnterTrigger(GameObject other)
+    protected override void OnProductEnter(GameObject other)
     {
         if (gameObject.name != "Exit Door") return;
         foreach (MoveToPoint door in controlledDoors)
@@ -15,7 +15,7 @@ public class TriggerDoor : ProductTriggerable
         }
     }
 
-    protected override void OnProductExitTrigger(GameObject other)
+    protected override void OnProductExit(GameObject other)
     {
         if (gameObject.name != "Enter Door") return;
         foreach (MoveToPoint door in controlledDoors)

@@ -1,19 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class ProductConveyer : ProductTriggerable
+public class ProductConveyer : MonoBehaviour
 {
-    [SerializeField] float beltSpeed = 1f;
+    [SerializeField] float beltSpeed = 15f;
     [SerializeField] Transform conveyer;
 
-    protected override void OnProductEnterTrigger(GameObject other)
+    private void OnCollisionStay(Collision other)
     {
-        other.transform.position += conveyer.transform.forward * beltSpeed * Time.deltaTime;
-    }
-
-    protected override void OnProductExitTrigger(GameObject other)
-    {
-        //empty
+        print(other.gameObject.tag);
+        if(other.gameObject.tag != "Product") return;
+        other.transform.position += conveyer.transform.forward * beltSpeed * Time.deltaTime;    
     }
 }

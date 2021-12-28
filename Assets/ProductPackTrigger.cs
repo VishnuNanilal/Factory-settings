@@ -10,12 +10,12 @@ public class ProductPackTrigger : ProductTriggerable
         pms = GetComponentInParent<PackingMachineSystem>();    
     }
 
-    protected override void OnProductEnterTrigger(GameObject other)
+    protected override void OnProductEnter(GameObject other)
     {
         pms.AddToSystem(other.gameObject);
     }
 
-    protected override void OnProductExitTrigger(GameObject other)
+    protected override void OnProductExit(GameObject other)
     {
         //none
     }

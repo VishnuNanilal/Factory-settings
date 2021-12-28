@@ -6,8 +6,6 @@ public class Rotator : MonoBehaviour
     [SerializeField] protected float speed = 2f;
 
     protected GameObject controlledObject;
-    private float timeToStopCoroutines = 10f;
-    private float timer = 10f;
 
     //overload 1
     public IEnumerator TurnObjectTo(Vector3 point)
@@ -33,15 +31,5 @@ public class Rotator : MonoBehaviour
             controlledObject.transform.localEulerAngles = Vector3.Lerp(controlledObject.transform.localEulerAngles, point, Time.deltaTime*speed);
             yield return null;
         }
-    }
-
-    private void Update() 
-    {
-        if(timer < 0)
-        {
-            StopAllCoroutines();
-            timer = timeToStopCoroutines;
-        }    
-        timer -= Time.deltaTime;
     }
 }

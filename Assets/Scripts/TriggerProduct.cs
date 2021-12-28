@@ -11,12 +11,12 @@ public class TriggerProduct : ProductTriggerable
     {
         ps = GetComponentInParent<ProductSensor>();    
     }
-    protected override void OnProductEnterTrigger(GameObject other)
+    protected override void OnProductEnter(GameObject other)
     {
         ps.ResetRotation();
     }
 
-    protected override void OnProductExitTrigger(GameObject other)
+    protected override void OnProductExit(GameObject other)
     {
         //empty
     }

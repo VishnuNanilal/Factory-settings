@@ -350,7 +350,7 @@ MonoBehaviour:
   lid: {fileID: 4146225621007990344}
   openTransform: {fileID: 47098286}
   ContainerCapacity: 5
-  stayOpenedTime: 3
+  stayOpenedTime: 0.25
 --- !u!114 &5299933336912480812
 MonoBehaviour:
   m_ObjectHideFlags: 0
