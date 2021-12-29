@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 701db6f3ed9c77a4e9961d7624655a02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sorterType: 0
   turnTable:
   - {fileID: 2193954186593315351}
   turnPoints:
@@ -51,7 +52,6 @@ MonoBehaviour:
   - {fileID: 1783338409716415121}
   - {fileID: 1783338409952182918}
   maxDistance: 10
-  productClearTrigger: []
   originalRotation: {fileID: 0}
 --- !u!1 &5695474884063504645
 GameObject:
@@ -206,7 +206,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2830342840213730308, guid: 7bea42fb3bd6d084c9b56450231c591e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -37.28
+      value: -38.7
       objectReference: {fileID: 0}
     - target: {fileID: 2830342840213730308, guid: 7bea42fb3bd6d084c9b56450231c591e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -515,15 +515,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8008477014396443296, guid: 18c8fca2d35b1ba49bf4b97b5a02eee2, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8008477014396443296, guid: 18c8fca2d35b1ba49bf4b97b5a02eee2, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8008477014396443296, guid: 18c8fca2d35b1ba49bf4b97b5a02eee2, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8008477014396443296, guid: 18c8fca2d35b1ba49bf4b97b5a02eee2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

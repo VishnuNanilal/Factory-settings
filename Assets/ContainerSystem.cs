@@ -5,20 +5,21 @@ using UnityEngine;
 public class ContainerSystem : MonoBehaviour
 {
     [SerializeField] GameObject lid;
-    [SerializeField] Transform openTransform;
-    Vector3 originalRotation;
+    [SerializeField] 
+    Transform openTransform;
+    Transform originalTransform;
     
     Rotator rotator;
     
     [Space][Space][Space]
     [SerializeField] int ContainerCapacity = 10;
-    [SerializeField] float stayOpenedTime = 5f;
+    [SerializeField] float stayOpenedTime = 2f;
     private float massCount = 0f;
 
 
     private void Awake() {
         rotator = GetComponent<Rotator>();
-        originalRotation = lid.GetComponent<Transform>().localEulerAngles;
+        originalTransform = lid.transform;
     }
 
     public float GetMassCount()
@@ -42,7 +43,8 @@ public class ContainerSystem : MonoBehaviour
 
     IEnumerator RotateLid()
     {
-        Vector3 openedRotation = openTransform.localEulerAngles;
+        Quaternion openedRotation = openTransform.localRotation;
+        Quaternion originalRotation = originalTransform.localRotation; 
 
         yield return rotator.TurnObjectTo(lid, openedRotation);
 

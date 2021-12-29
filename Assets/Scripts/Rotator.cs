@@ -4,11 +4,12 @@ using UnityEngine;
 public class Rotator : MonoBehaviour
 {
     [SerializeField] protected float speed = 2f;
+    [SerializeField] float timeOfRotation = 3;
 
     protected GameObject controlledObject;
 
     //overload 1
-    public IEnumerator TurnObjectTo(Vector3 point)
+    public IEnumerator TurnObjectTo(Quaternion point)
     {
         this.controlledObject = gameObject;
         StopAllCoroutines();
@@ -16,19 +17,23 @@ public class Rotator : MonoBehaviour
     }
 
     //overload 2
-    public IEnumerator TurnObjectTo(GameObject controlledObject, Vector3 point)
+    public IEnumerator TurnObjectTo(GameObject controlledObject, Quaternion point)
     {
         this.controlledObject = controlledObject;
         StopAllCoroutines();
         yield return StartCoroutine(Rotate(point));
     }
     
-    protected IEnumerator Rotate(Vector3 point)
+    protected IEnumerator Rotate(Quaternion point)
     {
+        float timer = 0;
         while(true)
-        {
-            if(Mathf.Approximately((int)controlledObject.transform.localEulerAngles.y, (int)point.y)) break;
-            controlledObject.transform.localEulerAngles = Vector3.Lerp(controlledObject.transform.localEulerAngles, point, Time.deltaTime*speed);
+        {   print(timer);
+            timer += Time.deltaTime;
+            if(timer >= timeOfRotation)
+                break;
+
+            controlledObject.transform.rotation = Quaternion.Lerp(controlledObject.transform.rotation, point, speed*Time.deltaTime);
             yield return null;
         }
     }
