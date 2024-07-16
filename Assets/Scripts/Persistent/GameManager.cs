@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance = null;
+    public static bool isFactoryWorking = true;
     public float ProductProductionRate;
 
     public GameObject[] spawnObjectList;

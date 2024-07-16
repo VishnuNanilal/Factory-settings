@@ -25,6 +25,8 @@ public class SpawnUnits : MonoBehaviour
 
     private IEnumerator StartSpawn()
     {
+        if(!GameManager.isFactoryWorking) yield return null;
+
         while(true)
         {
             currentUnit = GameManager.instance.spawnObjectList[Random.Range(0, GameManager.instance.spawnObjectList.Length)];

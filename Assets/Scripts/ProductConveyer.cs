@@ -7,6 +7,8 @@ public class ProductConveyer : MonoBehaviour
 
     private void OnCollisionStay(Collision other)
     {
+        if(!GameManager.isFactoryWorking) return;
+        
         if(other.gameObject.tag != "Product") return;
         other.transform.position += conveyer.transform.forward * beltSpeed * Time.deltaTime;    
     }

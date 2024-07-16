@@ -42,6 +42,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Turn Table (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4897343933594647741, guid: 18c8fca2d35b1ba49bf4b97b5a02eee2, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4897343933594647741, guid: 18c8fca2d35b1ba49bf4b97b5a02eee2, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: -3846018093981099296, guid: 326bbe2b70c10214bb453d87099b2d34, type: 3}
+    - target: {fileID: 7091568038746590988, guid: 18c8fca2d35b1ba49bf4b97b5a02eee2, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7648089325555010799, guid: 18c8fca2d35b1ba49bf4b97b5a02eee2, type: 3}
       propertyPath: m_Material
       value: 

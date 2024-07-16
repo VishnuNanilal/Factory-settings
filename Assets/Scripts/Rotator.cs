@@ -28,7 +28,7 @@ public class Rotator : MonoBehaviour
     {
         float timer = 0;
         while(true)
-        {   print(timer);
+        {   
             timer += Time.deltaTime;
             if(timer >= timeOfRotation)
                 break;
